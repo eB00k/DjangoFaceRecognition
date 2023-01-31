@@ -12,7 +12,7 @@ class Student(models.Model):
     profile_pic = models.ImageField(upload_to=user_directory_path)
     on_campus = models.BooleanField(default=False, null=False, blank=False)
 
-class Attandes(models.Model):
+class Attendance(models.Model):
     student = models.ForeignKey(Student, on_delete=models.PROTECT)
     time_entry = models.TimeField(null=False, blank=False)
     time_exit = models.TimeField(null=True)
