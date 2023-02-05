@@ -2,7 +2,7 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 def user_directory_path(instance, filename):
-    return "uploads/profile_pictures/{0}_{1}_{2}".format(instance.id, instance.name.lower(), instance.surname.lower())
+    return "uploads/profile_pictures/{0}_{1}".format(instance.name.lower(), instance.surname.lower())
 
 # Create your models here.
 class Student(models.Model):
@@ -11,6 +11,10 @@ class Student(models.Model):
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
     profile_pic = models.ImageField(upload_to=user_directory_path)
     on_campus = models.BooleanField(default=False, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+    
 
 class Attendance(models.Model):
     student = models.ForeignKey(Student, on_delete=models.PROTECT)
