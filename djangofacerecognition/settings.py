@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'djangofacerecognition.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'face_recognition', 
+        'NAME': 'postgres', 
         'USER': 'postgres', 
         'PASSWORD': 'postgres',
         'HOST': '127.0.0.1', 
