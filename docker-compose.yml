@@ -1,5 +1,23 @@
 version: '3.3'
 services:
+  django:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: docker_project_local_django
+    container_name: docker_project_local_django
+    depends_on:
+      - db
+    volumes:
+      - .:/code
+    restart: on-failure
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
   db:
     image: postgres
     restart: unless-stopped
