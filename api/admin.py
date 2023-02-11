@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Student, Attendance
+from .models import Person, Record
 # Register your models here.
 
-class StudentAdmin(admin.ModelAdmin):
+class PersonAdmin(admin.ModelAdmin):
     pass
 
-class AttendanceAdmin(admin.ModelAdmin):
+class RecordAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Student, StudentAdmin)
-admin.site.register(Attendance, AttendanceAdmin)
+admin.site.register(Person, PersonAdmin)
+admin.site.register(Record, RecordAdmin)
