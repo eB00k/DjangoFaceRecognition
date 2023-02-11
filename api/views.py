@@ -1,25 +1,25 @@
 from rest_framework import generics
-from .models import Student, Attendance
+from .models import Person, Record
 from .serializers import *
 
-class AttendanceList(generics.ListCreateAPIView):
-    serializer_class = AttendanceSerializer
+class RecordList(generics.ListCreateAPIView):
+    serializer_class = RecordSerializer
 
     def get_queryset(self):
-        queryset = Attendance.objects.all()
-        student = self.request.query_params.get('student')
-        if student is not None:
-            queryset = queryset.filter(student = student)
+        queryset = Record.objects.all()
+        Person = self.request.query_params.get('Person')
+        if Person is not None:
+            queryset = queryset.filter(Person = Person)
             return queryset
 
-class AttendanceDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = AttendanceSerializer
-    queryset = Attendance.objects.all()
+class RecordDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = RecordSerializer
+    queryset = Record.objects.all()
 
-class StudentList(generics.ListCreateAPIView):
-    serializer_class = StudentSerializer
-    queryset = Student.objects.all()
+class PersonList(generics.ListCreateAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
 
-class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = StudentSerializer
-    queryset = Student.objects.all()
+class PersonDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()

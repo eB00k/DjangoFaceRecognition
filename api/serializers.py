@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from api.models import Student, Attendance
+from api.models import Person, Record
 
-class StudentSerializer(serializers.ModelSerializer):
+class PersonSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Student
+        model = Person
         fields = '__all__'
 
-class AttendanceSerializer(serializers.ModelSerializer):
+class RecordSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Attendance
+        model = Record
         fields = '__all__'
