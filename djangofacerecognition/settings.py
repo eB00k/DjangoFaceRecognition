@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-#14xik*7578i@157fyq)_7@79+8k61-qd+h-p-6g$8l*ru=g6o
 # !!!if DEBUG is switched to False, then the database will be postgresql
 DEBUG = True
 
-ALLOWED_HOSTS = ['k1zlt.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    'k1zlt.pythonanywhere.com',
+    'localhost',
+]
 
 
 # Application definition
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'rest_framework.authtoken',
+    'djoser'
 ]
 
 MIDDLEWARE = [
@@ -59,10 +63,18 @@ REST_FRAMEWORK = {
     "NON_FIELD_ERRORS_KEY": "errors",
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication"
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated"),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination","NON_FIELD_ERRORS_KEY": "errors",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.BasicAuthentication"
     ),
     "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthentication"
+        "rest_framework.permissions.IsAuthenticated",
     )
 }
 
@@ -111,6 +123,7 @@ else:
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
