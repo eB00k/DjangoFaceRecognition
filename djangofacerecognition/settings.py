@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'k1zlt.pythonanywhere.com',
     'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -44,7 +45,9 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'rest_framework.authtoken',
-    'djoser'
+    'djoser',
+    'django_filters',
+    # 'RESTAPI',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +78,10 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
-    )
+    ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ],
 }
 
 TEMPLATES = [
