@@ -8,4 +8,5 @@ urlpatterns = [
     path('record/', RecordList.as_view()),
     path('record/<int:pk>', RecordDetail.as_view()),
     path('recordfilter/', RecordFilterList.as_view()),
+    path('recognition/', recognition)
 ]
