@@ -14,7 +14,7 @@ class Person(models.Model):
     on_campus = models.BooleanField(default=False, null=False, blank=False,            verbose_name="On Campus|На Кампусе")
     created_at = models.DateTimeField(auto_now_add=True,                               verbose_name="Created At|Создано")
     role = models.CharField(max_length=128, null=False, blank=False,                   verbose_name="Role|Роль")
-    gmail = models.EmailField(max_length=128, null=False, blank=False,                 verbose_name="Gmail|Почта")
+    email = models.EmailField(max_length=128, null=False, blank=False,                 verbose_name="Gmail|Почта")
     gender = models.IntegerField(choices=[(0, 'Male|Мужской'), (1, 'Female|Женский')], verbose_name="Gender|Пол")
 
     def __str__(self):

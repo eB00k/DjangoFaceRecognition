@@ -6,6 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from api.services import aws
+from django.shortcuts import get_object_or_404
 
 class RecordList(generics.ListCreateAPIView):
     serializer_class = RecordSerializer
@@ -27,12 +28,26 @@ class PersonList(generics.ListCreateAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filter_fields = ('id', 'name', 'surname', 'phone_number', 'on_campus', 'created_at', 'role', 'gender')
-    search_fields = ('id', 'name', 'surname', 'phone_number', 'on_campus', 'created_at', 'role', 'gender')
+    filter_fields = ('id', 'name', 'surname', 'phone_number', 'on_campus', 'created_at', 'role', 'email', 'gender')
+    search_fields = ('id', 'name', 'surname', 'phone_number', 'on_campus', 'created_at', 'role', 'email', 'gender')
+
+    def perform_create(self, serializer):
+        print(self.request.data)
+        aws.upload([self.request.data])
+        return super().perform_create(serializer)
+    
+
+
 
 class PersonDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
+
+    def get_object(self):
+        res = aws.match(self.request.data["file"])
+
+        if res == None: return None
+        return get_object_or_404(Person, email = "firuz.azizbekov_2026@ucentralasia.org")
 
 class PersonFilterList(generics.ListAPIView):
     serializer_class = PersonSerializer
@@ -59,9 +74,6 @@ class RecordFilterList(generics.ListAPIView):
 
 @api_view(['GET', 'POST'])
 def recognition(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
     if request.method == 'GET':
         print(request.data)   
         res = aws.match(request.data["file"])
