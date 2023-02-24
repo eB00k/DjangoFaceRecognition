@@ -1,12 +1,13 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 def user_directory_path(instance, filename):
     return "uploads/profile_pictures/{0}_{1}".format(instance.name.lower(), instance.surname.lower())
 
-# Create your models here.
 class Person(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=128,null=False, blank=False,                    verbose_name="Name|Имя")
     surname = models.CharField(max_length=128,null=False, blank=False,                 verbose_name="Surname|Фамилия")
     phone_number = PhoneNumberField(null=False, blank=False, unique=True,              verbose_name="Phone Number|Номер телефона")
