@@ -4,11 +4,9 @@ ENV PYTHONBUFFERED=1
 
 WORKDIR /code
 
-COPY requirements.txt /code/
+COPY . /code
 
-RUN pip3 install -r requirements.txt
-
-COPY . /code/
+RUN pip install -r requirements.txt
 
 EXPOSE 8000
 

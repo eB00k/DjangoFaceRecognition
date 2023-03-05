@@ -1,20 +1,21 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 def user_directory_path(instance, filename):
     return "uploads/profile_pictures/{0}_{1}".format(instance.name.lower(), instance.surname.lower())
 
-# Create your models here.
 class Person(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=128,null=False, blank=False,                    verbose_name="Name|Имя")
     surname = models.CharField(max_length=128,null=False, blank=False,                 verbose_name="Surname|Фамилия")
     phone_number = PhoneNumberField(null=False, blank=False, unique=True,              verbose_name="Phone Number|Номер телефона")
-    profile_pic = models.ImageField(upload_to=user_directory_path,                     verbose_name="Profile Picture|Аватарка")
+    profile_pic = models.ImageField(upload_to="uploads/profile_pictures/",             verbose_name="Profile Picture|Аватарка")
     on_campus = models.BooleanField(default=False, null=False, blank=False,            verbose_name="On Campus|На Кампусе")
     created_at = models.DateTimeField(auto_now_add=True,                               verbose_name="Created At|Создано")
     role = models.CharField(max_length=128, null=False, blank=False,                   verbose_name="Role|Роль")
-    gmail = models.EmailField(max_length=128, null=False, blank=False,                 verbose_name="Gmail|Почта")
+    email = models.EmailField(max_length=128, null=False, blank=False,                 verbose_name="Gmail|Почта")
     gender = models.IntegerField(choices=[(0, 'Male|Мужской'), (1, 'Female|Женский')], verbose_name="Gender|Пол")
 
     def __str__(self):
@@ -33,3 +34,8 @@ class Record(models.Model):
     class Meta:
         verbose_name = "Record|Запись"
         verbose_name_plural = "Records|Записи"
+
+
+# class AWSImage(models.Model):
+#     person = models.ForeignKey(Person, on_delete=models.CASCADE, verbose_name="Person|Человек")
+#     image = models.ImageField(upload_to=)

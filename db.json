@@ -1,0 +1,577 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-02-13T07:19:12.654Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "6d523075b368f6050db5a8eb6bc06553175ba288",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Person|Человек",
+    "content_type": 7,
+    "codename": "add_person"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Person|Человек",
+    "content_type": 7,
+    "codename": "change_person"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Person|Человек",
+    "content_type": 7,
+    "codename": "delete_person"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Person|Человек",
+    "content_type": 7,
+    "codename": "view_person"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Record|Запись",
+    "content_type": 8,
+    "codename": "add_record"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Record|Запись",
+    "content_type": 8,
+    "codename": "change_record"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Record|Запись",
+    "content_type": 8,
+    "codename": "delete_record"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Record|Запись",
+    "content_type": 8,
+    "codename": "view_record"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Token",
+    "content_type": 9,
+    "codename": "add_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Token",
+    "content_type": 9,
+    "codename": "change_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": 9,
+    "codename": "delete_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Token",
+    "content_type": 9,
+    "codename": "view_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add token",
+    "content_type": 10,
+    "codename": "add_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change token",
+    "content_type": 10,
+    "codename": "change_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete token",
+    "content_type": 10,
+    "codename": "delete_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view token",
+    "content_type": 10,
+    "codename": "view_tokenproxy"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$xI3IAoRbpcbPMlubJCvyiA$s3ZbS176xPTkczu8Q8OFFzeepiaqM7Jje+OmwIQsVNk=",
+    "last_login": "2023-02-13T07:22:26.801Z",
+    "is_superuser": true,
+    "username": "k1zlt",
+    "first_name": "",
+    "last_name": "",
+    "email": "firuz@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-02-13T07:17:28.545Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$m4rZ8UDSzqgg1z6PuzKrI9$1cP8BYAOuOrpHKeq8oZIqqaSA7Jh7/RInoEyDCOpxDY=",
+    "last_login": "2023-02-20T09:15:32.240Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-02-20T09:15:24.972Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "api",
+    "model": "person"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "api",
+    "model": "record"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "token"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "tokenproxy"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1q4maqjfubnffm1c297p8owjdrcquhmr",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGllZ4y8lPWewdu01DiBHipMKcXcSKQW0b2beW0RclxrXznMcs7gIEKffjTA9ue0gP7DdJ5mmtswjyV2RB-3yNmV-XQ_376Bir1ttMVGwKieAEgbnNBj2nF0IZ10GKIUVJLLoFBivPAUKwEmrzXbGoRGfL965N4Y:1pRTAQ:Yb8hLOs5g4Z_-ls3IxC2k1PpVOOtijUY8xqaiP5Q9qE",
+    "expire_date": "2023-02-27T07:22:26.811Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9udfj8cudtpnvfmxmnv2bdxxsfws394h",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYCnRcuvcMhOlMpWogKe3KeHfbpAvdvvf-f6uY1iXHtckcJ1YXBer0yygNTym74Ecq96qHWpZ5Ir0n-rBN3yrL63q0fwc5tbytTc8IxvjgEfyAQDjaAFZgo65DDCKjMIrvANCdQzIejRUKxD2TY_X5Aqr0Nv8:1pU2Gi:pOwNbpDVCZtY-w57ozVlPTBhDZgEJFF3VId0NgGN7no",
+    "expire_date": "2023-03-06T09:15:32.255Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zlpayzr1j6v9bqgjneq45x8buxed7pnx",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGllZ4y8lPWewdu01DiBHipMKcXcSKQW0b2beW0RclxrXznMcs7gIEKffjTA9ue0gP7DdJ5mmtswjyV2RB-3yNmV-XQ_376Bir1ttMVGwKieAEgbnNBj2nF0IZ10GKIUVJLLoFBivPAUKwEmrzXbGoRGfL965N4Y:1pRT5p:jJ8lsYndJEPKouFyw4nRYO1FLjMYije9TmVfoPVfY9U",
+    "expire_date": "2023-02-27T07:17:41.521Z"
+  }
+},
+{
+  "model": "api.person",
+  "pk": 1,
+  "fields": {
+    "name": "Firuz",
+    "surname": "Azizbekov",
+    "phone_number": "+996600400400",
+    "profile_pic": "uploads/profile_pictures/firuz_azizbekov_RwmExgX",
+    "on_campus": true,
+    "created_at": "2023-02-13T07:24:13.563Z",
+    "role": "Student-2026",
+    "email": "firuz@gmail.com",
+    "gender": 0
+  }
+},
+{
+  "model": "api.person",
+  "pk": 2,
+  "fields": {
+    "name": "Firuz",
+    "surname": "Azizbekov",
+    "phone_number": "+992934002790",
+    "profile_pic": "uploads/profile_pictures/firuz_azizbekov_f4nSkZi",
+    "on_campus": true,
+    "created_at": "2023-02-15T05:49:36.837Z",
+    "role": "Student-2026",
+    "email": "firuz.azizbekov_2026@ucentralasia.org",
+    "gender": 0
+  }
+},
+{
+  "model": "api.person",
+  "pk": 3,
+  "fields": {
+    "name": "Farzin",
+    "surname": "Mirzobekov",
+    "phone_number": "+992934002791",
+    "profile_pic": "uploads/profile_pictures/farzin_mirzobekov",
+    "on_campus": true,
+    "created_at": "2023-02-15T06:52:18.308Z",
+    "role": "Student-2026",
+    "email": "farzin.mirzobekov_2026@ucentralasia.org",
+    "gender": 0
+  }
+},
+{
+  "model": "api.record",
+  "pk": 1,
+  "fields": {
+    "person": 1,
+    "datetime_entry": "2023-02-13T08:01:01.143Z",
+    "datetime_exit": null
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "6d523075b368f6050db5a8eb6bc06553175ba288",
+  "fields": {
+    "user": 1,
+    "created": "2023-02-13T07:19:12.653Z"
+  }
+}
+]
