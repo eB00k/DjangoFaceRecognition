@@ -36,6 +36,6 @@ class Record(models.Model):
         verbose_name_plural = "Records|Записи"
 
 
-# class AWSImage(models.Model):
-#     person = models.ForeignKey(Person, on_delete=models.CASCADE, verbose_name="Person|Человек")
-#     image = models.ImageField(upload_to=)
+class AWSImage(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE,  verbose_name="Person|Человек")
+    image = models.ImageField(upload_to='uploads/AWSImages/',     verbose_name="Images|Фотография")

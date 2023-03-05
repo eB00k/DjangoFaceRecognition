@@ -1,5 +1,5 @@
 from rest_framework import generics, status
-from .models import Person, Record
+from .models import Person, Record, AWSImage
 from .serializers import *
 from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
@@ -84,5 +84,6 @@ def rekognition(request):
         return Response(res, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
+        item = AWSImage.objects.create(image=request.data.file, person=Person.objects.get(id=request.data.id))
         aws.upload([request.data])
         return Response("", status=status.HTTP_200_OK)
