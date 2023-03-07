@@ -56,7 +56,11 @@ def rekognition(request):
     if request.method == 'GET':
         print(request.data)
         res = aws.match(request.data["file"])
-        return Response(res, status=status.HTTP_200_OK)
+        try:
+            person = Person.objects.get(pk=int(res))
+        except:
+            return Response({'error': res}, status=status.HTTP_404_NOT_FOUND)
+        return Response(PersonSerializer(person).data, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
         item = AWSImage.objects.create(image=request.data.file, person=Person.objects.get(id=request.data.id))
