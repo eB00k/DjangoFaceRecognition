@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Person, Record
+from .models import Person, Record, AWSImage
 # Register your models here.
 
 class PersonAdmin(admin.ModelAdmin):
@@ -10,3 +10,5 @@ class RecordAdmin(admin.ModelAdmin):
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Record, RecordAdmin)
+admin.site.register(AWSImage)
+
