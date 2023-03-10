@@ -64,7 +64,6 @@ def rekognition(request):
 
     elif request.method == 'POST':
         item = AWSImage.objects.create(image=request.data["file"], person=Person.objects.get(id=request.data["id"]))
-        aws.upload([request.data])
         return Response("", status=status.HTTP_200_OK)
 
 
