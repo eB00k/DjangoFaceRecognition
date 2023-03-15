@@ -61,9 +61,15 @@ class PersonDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
 
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 def rekognition(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        item = AWSImage.objects.create(image=request.data["file"], person=Person.objects.get(id=request.data["id"]))
+        return Response("", status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+def rekognition_get(request):
+    if request.method == 'POST':
         print(request.data)
         res = aws.match(request.data["file"])
         try:
@@ -72,9 +78,6 @@ def rekognition(request):
             return Response({'error': res}, status=status.HTTP_404_NOT_FOUND)
         return Response(PersonSerializer(i.person).data, status=status.HTTP_200_OK)
 
-    elif request.method == 'POST':
-        item = AWSImage.objects.create(image=request.data["file"], person=Person.objects.get(id=request.data["id"]))
-        return Response("", status=status.HTTP_200_OK)
 
 
 @api_view(['POST', 'PATCH'])

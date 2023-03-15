@@ -7,5 +7,6 @@ urlpatterns = [
     path('record/', RecordList.as_view()),
     path('record/<int:pk>', RecordDetail.as_view()),
     path('rekognition/', rekognition),
+    path('rekognition/get/', rekognition_get),
     path('gate/<int:pk>', gate),
 ]
