@@ -44,6 +44,16 @@ class PersonList(generics.ListCreateAPIView):
     search_fields = ('id', 'name', 'surname', 'phone_number', 'on_campus', 'created_at', 'role', 'email', 'gender')
     permission_classes = [IsAuthenticated]
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def perform_create(self, serializer):
+        serializer.save()
+
 
 class PersonDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PersonSerializer
@@ -91,6 +101,5 @@ def gate(request, pk):
         last_record.save()
         person.on_campus = False
         person.save()
-        # data = JSONRenderer().render(GateSerializer(last_record).data)
         data = GateSerializer(last_record).data
         return Response(data, status=status.HTTP_200_OK)
