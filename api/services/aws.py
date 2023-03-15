@@ -63,4 +63,4 @@ def match(file):
     if not found:
         return ("Person cannot be recognized")
     else:
-        return res
+        return res[1]
