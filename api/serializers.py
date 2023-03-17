@@ -11,6 +11,7 @@ class PersonSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class RecordSerializer(serializers.ModelSerializer):
+    person = PersonSerializer()
     class Meta:
         model = Record
         fields = '__all__'
