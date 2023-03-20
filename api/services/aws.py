@@ -57,7 +57,7 @@ def match(file):
             )
 
         if 'Item' in face:
-            res = ("Found Person: ",face['Item']['FullName']['S'])
+            res = face['Item']['FullName']['S']
             found = True
 
     if not found:

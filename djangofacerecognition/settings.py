@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-#14xik*7578i@157fyq)_7@79+8k61-qd+h-p-6g$8l*ru=g6o
 # !!!if DEBUG is switched to False, then the database will be postgresql
 DEBUG = True
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 ALLOWED_HOSTS = [
     '*'
 ]
@@ -45,13 +47,15 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'django_filters',
+    'corsheaders'
     # 'RESTAPI',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -62,13 +66,7 @@ ROOT_URLCONF = 'djangofacerecognition.urls'
 
 REST_FRAMEWORK = {
     "NON_FIELD_ERRORS_KEY": "errors",
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication",
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated"),
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination","NON_FIELD_ERRORS_KEY": "errors",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
@@ -160,9 +158,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+print(STATIC_ROOT)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
