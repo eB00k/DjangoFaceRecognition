@@ -9,4 +9,6 @@ urlpatterns = [
     path('rekognition/', rekognition),
     path('rekognition/get/', rekognition_get),
     path('gate/<int:pk>', gate),
+    path('avatar/<int:pk>', get_profile_image),
+    path('aws/<int:pk>', get_aws_image),
 ]

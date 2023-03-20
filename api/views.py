@@ -1,10 +1,9 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.utils import timezone
 from rest_framework import generics, status, mixins
 from rest_framework.renderers import JSONRenderer
 from django.contrib.auth.models import User
-
-
+from PIL import Image
 from .models import Person, Record, AWSImage
 from .serializers import *
 from rest_framework.filters import SearchFilter
@@ -106,7 +105,6 @@ def gate(request, pk):
         record = Record.objects.create(person=person)
         person.on_campus = True
         person.save()
-        # data = JSONRenderer().render(GateSerializer(record).data)
         data = GateSerializer(record).data
         return Response(data, status=status.HTTP_200_OK)
 
@@ -121,3 +119,15 @@ def gate(request, pk):
         person.save()
         data = GateSerializer(last_record).data
         return Response(data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def get_profile_image(request, pk):
+    image = get_object_or_404(Person, pk=pk).profile_pic
+    return HttpResponse(image.read(), content_type='image/{}'.format(Image.open(image).format.lower()))
+
+@api_view(['GET'])
+def get_aws_image(request, pk):
+    image = get_object_or_404(AWSImage, pk=pk).image
+    return HttpResponse(image.read(), content_type='image/{}'.format(Image.open(image).format.lower()))
+
