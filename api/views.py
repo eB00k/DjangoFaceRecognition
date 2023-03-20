@@ -2,6 +2,8 @@ from django.http import JsonResponse
 from django.utils import timezone
 from rest_framework import generics, status, mixins
 from rest_framework.renderers import JSONRenderer
+from django.contrib.auth.models import User
+
 
 from .models import Person, Record, AWSImage
 from .serializers import *
@@ -47,12 +49,22 @@ class PersonList(generics.ListCreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
+        data = serializer.validated_data
+        is_user = request.data.get("is_user", default=False)
+        username = request.data.get("user.username", default="")
+        password = request.data.get("user.password", default="")
+        user = None
+        if (is_user != False and username != "" and password != ""):
+            user = User(username=username, password=password, first_name=data['name'],
+                        last_name=data['surname'], email=data['email'],
+                        is_staff=True)
+            user.save()
+        serializer.save(user=user)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-    def perform_create(self, serializer):
-        serializer.save()
+    # def perform_create(self, serializer):
+    #     serializer.save()
 
 
 class PersonDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -82,7 +94,10 @@ def rekognition_get(request):
 
 @api_view(['POST', 'PATCH'])
 def gate(request, pk):
-    person = Person.objects.get(pk=pk)
+    try:
+        person = Person.objects.get(pk=pk)
+    except:
+        return Response("No person with id {}".format(pk), status=status.HTTP_404_NOT_FOUND)
     records = Record.objects.filter(person=pk)
     if request.method == 'POST':
         if person.on_campus:
